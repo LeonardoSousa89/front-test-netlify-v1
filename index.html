@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            text-align:center;
+            background:black;
+            color:whitesmoke;
+        }
+    </style>
+    <title>test&reg;</title>
+</head>
+<body>
+    <h1>TEST&reg;</h1>
+    
+    <div id="container">
+
+    </div>
+
+    <script>
+
+
+        function getMsg() {
+            const container = document.querySelector('#container') 
+            const url = 'http://localhost:3005'
+            const config = {
+                method: 'GET'
+            }
+            fetch(url,config)
+                        .then(msg => msg.json())
+                        .then(msg => {
+                          let textJson = JSON.stringify(msg).toUpperCase().substring(8,33)
+                          let text = document.createElement('strong')
+                          
+                          container.style.border = '1px solid pink'
+                          container.style.borderRadius = '6px'
+                          container.style.display = 'flex'
+                          container.style.justifyContent = 'center'
+                          container.style.alignItems = 'center'
+                          container.style.height = '60vh'
+                          container.style.width = '95vw'
+                          text.style.fontSize = 'xx-large'
+                          text.style.color = 'purple'
+                          text.style.textShadow = '0px 0px 2px whitesmoke'
+                          
+                          text.append(textJson)
+                          create_data(container,text)
+                        })
+                        .catch(err => console.log(err))
+        }
+
+        document.onload = addEventListener('load',()=> getMsg())
+
+        function create_data(positioned,element) {
+            positioned.append(element)
+            console.log(element)
+        }
+
+
+    </script>
+</body>
+</html>
