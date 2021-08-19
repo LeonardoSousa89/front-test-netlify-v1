@@ -10,6 +10,11 @@
             background:black;
             color:whitesmoke;
         }
+        @media (max-device-width:768px){
+            strong{
+                font-size:large;
+            }
+        }
     </style>
     <title>test&reg;</title>
 </head>
@@ -25,7 +30,7 @@
 
         function getMsg() {
             const container = document.querySelector('#container') 
-            const url = 'http://localhost:3005'
+            const url = 'http://test-app-api-v1.herokuapp.com/'
             const config = {
                 method: 'GET'
             }
